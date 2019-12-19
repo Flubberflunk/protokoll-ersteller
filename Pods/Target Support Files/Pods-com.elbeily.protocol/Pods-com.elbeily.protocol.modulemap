@@ -1,0 +1,6 @@
+framework module Pods_com_elbeily_protocol {
+  umbrella header "Pods-com.elbeily.protocol-umbrella.h"
+
+  export *
+  module * { export * }
+}

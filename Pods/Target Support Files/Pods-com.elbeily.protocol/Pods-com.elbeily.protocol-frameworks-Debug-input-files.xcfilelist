@@ -1,0 +1,6 @@
+${PODS_ROOT}/Target Support Files/Pods-com.elbeily.protocol/Pods-com.elbeily.protocol-frameworks.sh
+${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework
+${BUILT_PRODUCTS_DIR}/PDFGenerator/PDFGenerator.framework
+${BUILT_PRODUCTS_DIR}/Realm/Realm.framework
+${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework
+${BUILT_PRODUCTS_DIR}/StatusAlert/StatusAlert.framework

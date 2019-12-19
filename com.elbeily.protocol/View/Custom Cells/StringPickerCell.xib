@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="stringPickerCell" rowHeight="140" id="KGk-i7-Jjw" customClass="StringPickerCell" customModule="com_elbeily_protocol" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="140"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="140"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihX-as-mPZ">
+                        <rect key="frame" x="10" y="10" width="110" height="120"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="110" id="cu1-5A-XKQ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8y1-dN-TWJ">
+                        <rect key="frame" x="120" y="0.0" width="264" height="140"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pkH-XF-pGT" userLabel="labelcontainer">
+                                <rect key="frame" x="0.0" y="0.0" width="264" height="140"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="wU8-9x-qRR">
+                                        <rect key="frame" x="8" y="0.0" width="256" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jDv-Wo-5Eb" userLabel="pickercontainer">
+                                <rect key="frame" x="0.0" y="0.0" width="264" height="140"/>
+                                <subviews>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A5d-jm-n49">
+                                        <rect key="frame" x="0.0" y="-22" width="264" height="162"/>
+                                    </pickerView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="A5d-jm-n49" secondAttribute="bottom" id="Poh-xM-Lhq"/>
+                                    <constraint firstAttribute="trailing" secondItem="A5d-jm-n49" secondAttribute="trailing" id="WhR-0l-kS8"/>
+                                    <constraint firstItem="A5d-jm-n49" firstAttribute="leading" secondItem="jDv-Wo-5Eb" secondAttribute="leading" id="Wt4-ln-10j"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="jDv-Wo-5Eb" secondAttribute="trailing" id="CFz-9R-Xd6"/>
+                            <constraint firstItem="jDv-Wo-5Eb" firstAttribute="top" secondItem="8y1-dN-TWJ" secondAttribute="top" id="ILh-7k-n5m"/>
+                            <constraint firstAttribute="bottom" secondItem="pkH-XF-pGT" secondAttribute="bottom" id="Ioi-fS-Pke"/>
+                            <constraint firstItem="pkH-XF-pGT" firstAttribute="leading" secondItem="8y1-dN-TWJ" secondAttribute="leading" id="POZ-LU-0MW"/>
+                            <constraint firstAttribute="trailing" secondItem="pkH-XF-pGT" secondAttribute="trailing" id="Q2y-pB-yUC"/>
+                            <constraint firstItem="jDv-Wo-5Eb" firstAttribute="leading" secondItem="8y1-dN-TWJ" secondAttribute="leading" id="YXm-eX-gIe"/>
+                            <constraint firstAttribute="bottom" secondItem="jDv-Wo-5Eb" secondAttribute="bottom" id="wUa-Kb-MEM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="8y1-dN-TWJ" firstAttribute="leading" secondItem="ihX-as-mPZ" secondAttribute="trailing" id="I60-Pm-qN5"/>
+                    <constraint firstAttribute="trailing" secondItem="8y1-dN-TWJ" secondAttribute="trailing" id="QZN-qk-LZj"/>
+                    <constraint firstAttribute="bottom" secondItem="ihX-as-mPZ" secondAttribute="bottom" constant="10" id="Rn8-YT-4Ex"/>
+                    <constraint firstItem="ihX-as-mPZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="XM0-ev-OUk"/>
+                    <constraint firstItem="8y1-dN-TWJ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="a9k-Ba-mxA"/>
+                    <constraint firstItem="8y1-dN-TWJ" firstAttribute="leading" secondItem="ihX-as-mPZ" secondAttribute="trailing" id="bRt-1a-Y1T"/>
+                    <constraint firstAttribute="bottom" secondItem="8y1-dN-TWJ" secondAttribute="bottom" id="c7c-2w-GiN"/>
+                    <constraint firstItem="ihX-as-mPZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="nwe-VU-aCK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="label" destination="ihX-as-mPZ" id="6EK-uj-uzA"/>
+                <outlet property="labelcontainer" destination="pkH-XF-pGT" id="yfv-n9-9Ha"/>
+                <outlet property="picker" destination="A5d-jm-n49" id="QRG-JL-HtR"/>
+                <outlet property="pickercontainer" destination="jDv-Wo-5Eb" id="k2B-Dh-4aA"/>
+                <outlet property="preview" destination="wU8-9x-qRR" id="dD9-33-yjg"/>
+            </connections>
+            <point key="canvasLocation" x="184.05797101449278" y="172.76785714285714"/>
+        </tableViewCell>
+    </objects>
+</document>

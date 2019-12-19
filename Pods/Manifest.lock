@@ -1,0 +1,36 @@
+PODS:
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
+  - PDFGenerator (3.1.0)
+  - Realm (4.2.0):
+    - Realm/Headers (= 4.2.0)
+  - Realm/Headers (4.2.0)
+  - RealmSwift (4.2.0):
+    - Realm (= 4.2.0)
+  - StatusAlert (1.1.1)
+
+DEPENDENCIES:
+  - ChameleonFramework
+  - PDFGenerator (~> 3.0)
+  - RealmSwift
+  - StatusAlert (~> 1.1.1)
+
+SPEC REPOS:
+  trunk:
+    - ChameleonFramework
+    - PDFGenerator
+    - Realm
+    - RealmSwift
+    - StatusAlert
+
+SPEC CHECKSUMS:
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
+  PDFGenerator: 17d6bc525db0a3fcd156fbf00f9d1b8d5cc75d1e
+  Realm: 24f62307291e35ca9ba69f4d5e7214142543b12d
+  RealmSwift: eec89a12ff5ff09f365519c64591ab297acbbb40
+  StatusAlert: a18ec3c33d36a06d4479c1f2b15ffac67aaf7ab1
+
+PODFILE CHECKSUM: 5e4fa491a98f1a1423ee53ae5dde9005d9a06423
+
+COCOAPODS: 1.8.4
