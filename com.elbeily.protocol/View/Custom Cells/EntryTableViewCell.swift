@@ -14,7 +14,7 @@ class EntryTableViewCell: UITableViewCell {
 
     
     let realm = try! Realm()
-    
+    var entryControllerDelegate : EntryController?
     var protocolAddExecutee : AddExecutee?
     @IBOutlet weak var addExecutee: UIButton!
     @IBOutlet weak var executees: UIPickerView!
@@ -28,7 +28,7 @@ class EntryTableViewCell: UITableViewCell {
     var localization : Localization?
     var executeeArr : [String]?
     var entry : Entry?
-    
+    var initialNumber : Double?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -128,6 +128,7 @@ class EntryTableViewCell: UITableViewCell {
                 if let number = Double(nr) {
                     try realm.write{
                         entry.number = number
+                        entryControllerDelegate?.updateAllNumber()
                     }
                 }
             }catch{

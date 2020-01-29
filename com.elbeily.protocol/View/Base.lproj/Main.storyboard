@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ioL-UN-8Wm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ioL-UN-8Wm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Protokolle-->
         <scene sceneID="cqD-kM-kHw">
             <objects>
-                <tableViewController id="rcH-ab-LFz" customClass="HomeTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="rcH-ab-LFz" customClass="HomeTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Vd0-OG-gpx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,11 +34,44 @@
                         <segue destination="fox-SL-oiz" kind="show" identifier="goToAddEntry" id="IcX-tD-tbf"/>
                         <segue destination="BTS-6Y-EfD" kind="show" identifier="goToPanelSettings" id="Ev4-2N-fVe"/>
                         <segue destination="7Xv-rK-8qb" kind="show" identifier="goToPDFPreview" id="IrF-fP-qtt"/>
+                        <segue destination="hTl-VP-eIH" kind="show" identifier="goToGlobalSettings" id="J3R-gv-g5a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zgk-F4-by3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-865" y="-273"/>
+        </scene>
+        <!--Global Settings-->
+        <scene sceneID="1g5-Vl-uIg">
+            <objects>
+                <tableViewController id="hTl-VP-eIH" userLabel="Global Settings" customClass="GlobalSettingsTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sG7-WF-RFw">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="VFi-Bp-Wyl">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VFi-Bp-Wyl" id="w38-xm-zAh">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hTl-VP-eIH" id="Y6X-Fo-yBq"/>
+                            <outlet property="delegate" destination="hTl-VP-eIH" id="xA4-xu-vvI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Export Einstellungen" id="cny-Iv-3ii"/>
+                    <connections>
+                        <segue destination="Eqm-7x-ofp" kind="show" identifier="goToHeaderImage" id="mY0-kj-3fd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q5X-1n-qk1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-900" y="-1000"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="DdT-D8-Oe0">
@@ -59,7 +92,7 @@
         <!--AddParticioant-->
         <scene sceneID="ACT-ca-VRe">
             <objects>
-                <tableViewController id="aTo-13-JtG" userLabel="AddParticioant" customClass="AddParticipantTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aTo-13-JtG" userLabel="AddParticioant" customClass="AddParticipantTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="n0b-vS-mRu">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -88,7 +121,7 @@
         <!--EditParticioant-->
         <scene sceneID="q1y-Rl-xZ3">
             <objects>
-                <tableViewController id="HvO-WB-RBL" userLabel="EditParticioant" customClass="EditParticipantTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="HvO-WB-RBL" userLabel="EditParticioant" customClass="EditParticipantTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RNE-6m-axT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -117,7 +150,7 @@
         <!--SelectParticipant-->
         <scene sceneID="aGA-xv-lJV">
             <objects>
-                <tableViewController id="6wd-GZ-Zwd" userLabel="SelectParticipant" customClass="SelectParticipantTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="6wd-GZ-Zwd" userLabel="SelectParticipant" customClass="SelectParticipantTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="WhE-zG-GIW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +184,7 @@
         <!--ImportContacts-->
         <scene sceneID="J1X-nk-LaJ">
             <objects>
-                <tableViewController id="V7F-Kj-dBw" userLabel="ImportContacts" customClass="ImportContactsTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="V7F-Kj-dBw" userLabel="ImportContacts" customClass="ImportContactsTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="lKn-Oj-3EI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -171,7 +204,22 @@
                             <outlet property="delegate" destination="V7F-Kj-dBw" id="hAj-3v-uu2"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Teilnehmer" id="c8i-zE-wqZ"/>
+                    <navigationItem key="navigationItem" id="c8i-zE-wqZ">
+                        <nil key="title"/>
+                        <textField key="titleView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="Smh-ZE-jpQ">
+                            <rect key="frame" x="191" y="5" width="32" height="34"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <action selector="onSearchTFChange:" destination="V7F-Kj-dBw" eventType="valueChanged" id="Hxm-7V-Yd3"/>
+                            </connections>
+                        </textField>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchTF" destination="Smh-ZE-jpQ" id="sjW-aN-asF"/>
+                        <outlet property="serach" destination="c8i-zE-wqZ" id="bth-XD-4c2"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ct3-IS-df2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -180,8 +228,8 @@
         <!--EntryViewController-->
         <scene sceneID="uzH-Ds-h8V">
             <objects>
-                <tableViewController id="fox-SL-oiz" userLabel="EntryViewController" customClass="EntryController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FLq-eU-g4v">
+                <tableViewController id="fox-SL-oiz" userLabel="EntryViewController" customClass="EntryController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="FLq-eU-g4v">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -213,7 +261,7 @@
         <!--ProtocolSettings-->
         <scene sceneID="tLM-XD-bPS">
             <objects>
-                <tableViewController id="BTS-6Y-EfD" userLabel="ProtocolSettings" customClass="ProtocolSettingsTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="BTS-6Y-EfD" userLabel="ProtocolSettings" customClass="ProtocolSettingsTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="aV2-UY-r8U">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -237,7 +285,6 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <segue destination="6wd-GZ-Zwd" kind="show" identifier="goToSelectParticipant" id="ii6-H4-ddr"/>
-                        <segue destination="Eqm-7x-ofp" kind="show" identifier="goToHeaderImage" id="tst-RG-tqw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dt7-PA-rKW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -247,7 +294,7 @@
         <!--PDFPreview-->
         <scene sceneID="7KC-0S-rPz">
             <objects>
-                <tableViewController id="7Xv-rK-8qb" userLabel="PDFPreview" customClass="PDFPreviewTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="7Xv-rK-8qb" userLabel="PDFPreview" customClass="PDFPreviewTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="8cP-Rh-pTm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +324,7 @@
         <!--HeaderImageChange-->
         <scene sceneID="3sg-H5-9Jk">
             <objects>
-                <tableViewController id="Eqm-7x-ofp" userLabel="HeaderImageChange" customClass="HeaderImageChangeTableViewController" customModule="com_elbeily_protocol" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Eqm-7x-ofp" userLabel="HeaderImageChange" customClass="HeaderImageChangeTableViewController" customModule="Protokoll_Ersteller" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="CRT-JS-UZ5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -302,10 +349,10 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hP8-iB-hge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1109" y="-273"/>
+            <point key="canvasLocation" x="-1900" y="-1000"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ii6-H4-ddr"/>
+        <segue reference="SN3-Ej-xSG"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -21,7 +21,6 @@ class ProtocolSettingsTableViewCell: UITableViewCell {
     @IBOutlet weak var distributorLabel: UILabel!
     @IBOutlet weak var distributorPicker: UIPickerView!
     @IBOutlet weak var distributorButton: UIButton!
-    @IBOutlet weak var changeHeaderImageButton: UIButton!
     
     var settingsAddWriter : AddWriter?
     var proto : Protocol?
@@ -86,7 +85,7 @@ extension ProtocolSettingsTableViewCell : UIPickerViewDataSource, UIPickerViewDe
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int{
         
-        print(pickerView)
+//        print(pickerView)
         var rows = 0
         if pickerView.largeContentTitle == "1" {
             if let arr = writerArray {

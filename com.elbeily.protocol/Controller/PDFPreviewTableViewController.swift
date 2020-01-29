@@ -8,7 +8,7 @@
 
 import UIKit
 import PDFGenerator
-
+import RealmSwift
 import Foundation
 
 class PDFPreviewTableViewController: MenuController {
@@ -67,9 +67,9 @@ class PDFPreviewTableViewController: MenuController {
         let dividerHeight = 2.0
         let x = 10.0
         let fontColor = UIColor.flatBlack()
-    
+        
         //get header image
-        let image = getHeaderImageForProto(proto: proto)
+        let image = getHeaderImageForProto()
         //header image
         let imageView = UIImageView(image: image)
         imageView.frame = CGRect(x: 0, y: y, width: width, height: headerHeight)
@@ -86,7 +86,22 @@ class PDFPreviewTableViewController: MenuController {
         y += margin
         let object = UILabel()
         object.font = h1Font
-        object.text = String(format: "Objekt: %@ / %@ / %@", proto.costLocation?.name ?? localization.NA, proto.project?.name ?? localization.NA, proto.topic?.name ?? localization.NA)
+        var title = "Objekt: "
+        var atLeastOne = 0
+        atLeastOne += (globalSettings?.showCostObject ?? true) ? 1 : 0
+        
+        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showCostObject ?? true)  ? proto.costLocation?.name ?? localization.NA : "")
+        atLeastOne += (globalSettings?.showProjektTitle ?? true) ? 1 : 0
+        
+        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showProjektTitle ?? true)  ? proto.project?.name ?? localization.NA : "")
+        
+        atLeastOne += (globalSettings?.showTopicName ?? true) ? 1 : 0
+        
+        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showTopicName ?? true)  ? proto.topic?.name ?? localization.NA : "")
+        object.text = title
+        
+        
+        
         object.frame = CGRect(x:x, y:y, width: width-x, height: labelH1Height)
         object.textColor = fontColor
         v1.addSubview(object)
@@ -236,9 +251,10 @@ class PDFPreviewTableViewController: MenuController {
         v1.addSubview(divider4)
         y += margin
         
+        let sortedEntries = sortEntry(proto.entries)
         
         var potentialH = 0.0
-        for entry in proto.entries {
+        for entry in sortedEntries {
             let nr = UILabel()
             nr.text = String(entry.number)
             nr.font = h1Font
@@ -286,7 +302,7 @@ class PDFPreviewTableViewController: MenuController {
                 break
                 
             }
-
+            
             var concernH = y
             status.text = text
             status.backgroundColor = color!
@@ -343,20 +359,73 @@ class PDFPreviewTableViewController: MenuController {
             v1.addSubview(divider)
             y += margin
             
-
+            
         }
         
         //vertical divider
         let vDiv1 = UIView()
-        vDiv1.frame =  CGRect(x: w1, y: vDiv1H, width: vDividerW, height: (y - vDiv1H))
+        vDiv1.frame =  CGRect(x: w1, y: vDiv1H, width: vDividerW, height: (y - vDiv1H - margin))
         vDiv1.backgroundColor = .lightGray
         v1.addSubview(vDiv1)
         
         //vertical divider
         let vDiv3 = UIView()
-        vDiv3.frame =  CGRect(x: w1+w2, y: vDiv1H, width: vDividerW, height: (y - vDiv1H))
+        vDiv3.frame =  CGRect(x: w1+w2, y: vDiv1H, width: vDividerW, height: (y - vDiv1H - margin))
         vDiv3.backgroundColor = .lightGray
         v1.addSubview(vDiv3)
+        
+        
+        
+        if true == globalSettings!.showContact || true == globalSettings!.showCompanyName {
+            y+=margin*2
+            let divider = UIView()
+            divider.frame =  CGRect(x: x, y: y, width: width-x, height: dividerHeight)
+            divider.backgroundColor = .black
+            v1.addSubview(divider)
+            y += margin
+            
+        }
+        
+        
+        var companyNameY = y
+        if true == globalSettings?.showContact {
+            
+            var contactInfo = [String]()
+            contactInfo.append(globalSettings!.contactAddressCountry)
+            contactInfo.append(globalSettings!.contactAddressZipcode)
+            contactInfo.append(globalSettings!.contactAddressState)
+            contactInfo.append(globalSettings!.contactAddressTown)
+            contactInfo.append(globalSettings!.contactAddressStreet)
+            contactInfo.append("")
+            contactInfo.append(globalSettings!.companyContactTele)
+            contactInfo.append(globalSettings!.companyContactMail)
+            
+            
+            
+            for contact in contactInfo {
+                let contactUI = UILabel()
+                contactUI.font = h2Font
+                contactUI.frame =  CGRect(x: x, y: y, width: width-x, height: labelH1Height)
+                contactUI.text = contact
+                contactUI.textColor = fontColor
+                v1.addSubview(contactUI)
+                companyNameY = y
+                y += labelH1Height
+            }
+        }
+        
+        
+        
+        
+        if true == globalSettings?.showCompanyName {
+            let companyNameUI = UILabel()
+            companyNameUI.font = h1Font
+            companyNameUI.textAlignment = .right
+            companyNameUI.frame = CGRect(x:w1+w2, y:companyNameY, width: w3 - x, height: labelH1Height)
+            companyNameUI.text = globalSettings!.companyName
+            companyNameUI.textColor = fontColor
+            v1.addSubview(companyNameUI)
+        }
         
         
         
@@ -376,6 +445,8 @@ class PDFPreviewTableViewController: MenuController {
         dc.delegate = self
         dc.presentPreview(animated: true)
     }
+    
+    
 }
 
 extension PDFPreviewTableViewController : UIDocumentInteractionControllerDelegate {

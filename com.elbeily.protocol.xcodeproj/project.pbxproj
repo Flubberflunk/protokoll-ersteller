@@ -25,7 +25,6 @@
 		1B26A51823ABB97C00541F68 /* HeaderImageChangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26A51723ABB97C00541F68 /* HeaderImageChangeTableViewController.swift */; };
 		1B26A51B23ABBDB800541F68 /* HeaderImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B26A51923ABBDB800541F68 /* HeaderImageTableViewCell.swift */; };
 		1B26A51C23ABBDB800541F68 /* HeaderImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B26A51A23ABBDB800541F68 /* HeaderImageTableViewCell.xib */; };
-		1B26A52023AC3CFA00541F68 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B26A51F23AC3CFA00541F68 /* StoreKit.framework */; };
 		1B2D14C7239FC71600F2DF48 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D14C6239FC71600F2DF48 /* AppDelegate.swift */; };
 		1B2D14C9239FC71600F2DF48 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D14C8239FC71600F2DF48 /* SceneDelegate.swift */; };
 		1B2D14CB239FC71600F2DF48 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D14CA239FC71600F2DF48 /* ViewController.swift */; };
@@ -52,6 +51,10 @@
 		1B2D150323A004E800F2DF48 /* ButtonCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B2D150123A004E800F2DF48 /* ButtonCell.xib */; };
 		1B2D150623A00BED00F2DF48 /* StringPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B2D150423A00BED00F2DF48 /* StringPickerCell.swift */; };
 		1B2D150723A00BED00F2DF48 /* StringPickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1B2D150523A00BED00F2DF48 /* StringPickerCell.xib */; };
+		1BA6067B23B4F9220039EB95 /* GlobalSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6067A23B4F9220039EB95 /* GlobalSettings.swift */; };
+		1BA6067E23B4FA430039EB95 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6067C23B4FA430039EB95 /* SwitchTableViewCell.swift */; };
+		1BA6067F23B4FA430039EB95 /* SwitchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6067D23B4FA430039EB95 /* SwitchTableViewCell.xib */; };
+		1BA6068123B4FA550039EB95 /* GlobalSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6068023B4FA550039EB95 /* GlobalSettingsTableViewController.swift */; };
 		1BB50E1D23A3F5BB00326E39 /* EntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB50E1B23A3F5BB00326E39 /* EntryTableViewCell.swift */; };
 		1BB50E1E23A3F5BB00326E39 /* EntryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1BB50E1C23A3F5BB00326E39 /* EntryTableViewCell.xib */; };
 		428E9151D7C735A4BA7105FD /* Pods_com_elbeily_protocol.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23452BE635CC7D27EFC691A4 /* Pods_com_elbeily_protocol.framework */; };
@@ -76,8 +79,7 @@
 		1B26A51723ABB97C00541F68 /* HeaderImageChangeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageChangeTableViewController.swift; sourceTree = "<group>"; };
 		1B26A51923ABBDB800541F68 /* HeaderImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderImageTableViewCell.swift; sourceTree = "<group>"; };
 		1B26A51A23ABBDB800541F68 /* HeaderImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderImageTableViewCell.xib; sourceTree = "<group>"; };
-		1B26A51F23AC3CFA00541F68 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		1B2D14C3239FC71600F2DF48 /* Report Helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Report Helper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1B2D14C3239FC71600F2DF48 /* Protokoll Ersteller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Protokoll Ersteller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B2D14C6239FC71600F2DF48 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1B2D14C8239FC71600F2DF48 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		1B2D14CA239FC71600F2DF48 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -105,6 +107,10 @@
 		1B2D150123A004E800F2DF48 /* ButtonCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCell.xib; sourceTree = "<group>"; };
 		1B2D150423A00BED00F2DF48 /* StringPickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringPickerCell.swift; sourceTree = "<group>"; };
 		1B2D150523A00BED00F2DF48 /* StringPickerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StringPickerCell.xib; sourceTree = "<group>"; };
+		1BA6067A23B4F9220039EB95 /* GlobalSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettings.swift; sourceTree = "<group>"; };
+		1BA6067C23B4FA430039EB95 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		1BA6067D23B4FA430039EB95 /* SwitchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SwitchTableViewCell.xib; sourceTree = "<group>"; };
+		1BA6068023B4FA550039EB95 /* GlobalSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalSettingsTableViewController.swift; sourceTree = "<group>"; };
 		1BB50E1B23A3F5BB00326E39 /* EntryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryTableViewCell.swift; sourceTree = "<group>"; };
 		1BB50E1C23A3F5BB00326E39 /* EntryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EntryTableViewCell.xib; sourceTree = "<group>"; };
 		23452BE635CC7D27EFC691A4 /* Pods_com_elbeily_protocol.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_com_elbeily_protocol.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +124,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				428E9151D7C735A4BA7105FD /* Pods_com_elbeily_protocol.framework in Frameworks */,
-				1B26A52023AC3CFA00541F68 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,7 +151,7 @@
 		1B2D14C4239FC71600F2DF48 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				1B2D14C3239FC71600F2DF48 /* Report Helper.app */,
+				1B2D14C3239FC71600F2DF48 /* Protokoll Ersteller.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -189,6 +194,7 @@
 				1B2D14E7239FD20300F2DF48 /* CostLocation.swift */,
 				1B2D14E9239FD2F900F2DF48 /* Project.swift */,
 				1B2D14EB239FD33700F2DF48 /* Topic.swift */,
+				1BA6067A23B4F9220039EB95 /* GlobalSettings.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -206,6 +212,7 @@
 				1B26A51323AACBBF00541F68 /* ImportContactsTableViewController.swift */,
 				1B26A51523AAE2C900541F68 /* EditParticipantTableViewController.swift */,
 				1B26A51723ABB97C00541F68 /* HeaderImageChangeTableViewController.swift */,
+				1BA6068023B4FA550039EB95 /* GlobalSettingsTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +246,8 @@
 				1B26A50823A9157100541F68 /* ProtocolSettingsTableViewCell.xib */,
 				1B26A51923ABBDB800541F68 /* HeaderImageTableViewCell.swift */,
 				1B26A51A23ABBDB800541F68 /* HeaderImageTableViewCell.xib */,
+				1BA6067C23B4FA430039EB95 /* SwitchTableViewCell.swift */,
+				1BA6067D23B4FA430039EB95 /* SwitchTableViewCell.xib */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -265,7 +274,6 @@
 		C990680A603B5C67BE575161 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1B26A51F23AC3CFA00541F68 /* StoreKit.framework */,
 				23452BE635CC7D27EFC691A4 /* Pods_com_elbeily_protocol.framework */,
 			);
 			name = Frameworks;
@@ -290,7 +298,7 @@
 			);
 			name = com.elbeily.protocol;
 			productName = com.elbeily.protocol;
-			productReference = 1B2D14C3239FC71600F2DF48 /* Report Helper.app */;
+			productReference = 1B2D14C3239FC71600F2DF48 /* Protokoll Ersteller.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -343,6 +351,7 @@
 				1B26A50423A796F000541F68 /* ProtocolTableViewCell.xib in Resources */,
 				1B2D14F6239FEEB800F2DF48 /* LabelTextBoxCell.xib in Resources */,
 				1BB50E1E23A3F5BB00326E39 /* EntryTableViewCell.xib in Resources */,
+				1BA6067F23B4FA430039EB95 /* SwitchTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -398,7 +407,9 @@
 				1B2D150223A004E800F2DF48 /* ButtonCell.swift in Sources */,
 				1B2D14F0239FDF2B00F2DF48 /* HomeTableViewController.swift in Sources */,
 				1B2D14F2239FE7DB00F2DF48 /* AddParticipantTableViewController.swift in Sources */,
+				1BA6067B23B4F9220039EB95 /* GlobalSettings.swift in Sources */,
 				1B26A50323A796F000541F68 /* ProtocolTableViewCell.swift in Sources */,
+				1BA6067E23B4FA430039EB95 /* SwitchTableViewCell.swift in Sources */,
 				1BB50E1D23A3F5BB00326E39 /* EntryTableViewCell.swift in Sources */,
 				1B2D14FD239FF12600F2DF48 /* DE.swift in Sources */,
 				1B2D14E1239FCB5600F2DF48 /* Entry.swift in Sources */,
@@ -425,6 +436,7 @@
 				1B2D14E4239FCF9600F2DF48 /* Protocol.swift in Sources */,
 				1B2D14E8239FD20300F2DF48 /* CostLocation.swift in Sources */,
 				1B10241E23A5261200DA9F91 /* AddButtonCell.swift in Sources */,
+				1BA6068123B4FA550039EB95 /* GlobalSettingsTableViewController.swift in Sources */,
 				1B2D14FF239FF48700F2DF48 /* ParticipantRows.swift in Sources */,
 				1B2D14EA239FD2F900F2DF48 /* Project.swift in Sources */,
 				1B2D14F5239FEEB800F2DF48 /* LabelTextBoxCell.swift in Sources */,
@@ -574,6 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = VH5WZ3VU73;
 				INFOPLIST_FILE = com.elbeily.protocol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -581,8 +594,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elbeily.reporthelper;
-				PRODUCT_NAME = "Report Helper";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elbeily.protocol;
+				PRODUCT_NAME = "Protokoll Ersteller";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -594,6 +607,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = VH5WZ3VU73;
 				INFOPLIST_FILE = com.elbeily.protocol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -601,8 +615,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.elbeily.reporthelper;
-				PRODUCT_NAME = "Report Helper";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elbeily.protocol;
+				PRODUCT_NAME = "Protokoll Ersteller";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

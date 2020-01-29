@@ -38,7 +38,7 @@ class ProtocolTableViewCell: UITableViewCell {
     }
     
     @objc func settingsPressed() {
-        print("settings pressed")
+//        print("settings pressed")
         homeControllerDelegate?.segueIndex = index
         homeControllerDelegate?.performSegue(withIdentifier: "goToPanelSettings", sender: homeControllerDelegate.self)
     }

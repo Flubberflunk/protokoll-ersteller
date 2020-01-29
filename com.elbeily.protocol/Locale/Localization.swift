@@ -59,5 +59,22 @@ protocol Localization {
     var pdfGenerating : String {get set}
     
     var selectImageFromGallery : String {get set}
+    var changeHeaderImage : String {get set}
+    
+    
+    var showCostObjectLabel : String {get set}
+    var showProjektTitleLabel : String {get set}
+    var showTopicNameLabel : String {get set}
+    var showCompanyNameLabel : String {get set}
+    var showContactAddressLabel : String {get set}
+    var companyNameLabel : String {get set}
+    var contactAddressLabel : String {get set}    
+    var contactAddressCountryLabel : String {get set}
+    var contactAddressZipcodeLabel : String {get set}
+    var contactAddressStateLabel : String {get set}
+    var contactAddressTownLabel : String {get set}
+    var contactAddressStreetLabel : String {get set}
+    var companyContactTeleLabel : String {get set}
+    var companyContactMailLabel : String {get set}
 }
 

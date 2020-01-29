@@ -97,9 +97,11 @@ class ProtocolSettingsTableViewController: MenuController{
             settingCell.writerButton.setTitle(localization.buttonManageCreators, for: .normal)
             settingCell.distributorButton.setTitle(localization.buttonManageDistributors, for: .normal)
             settingCell.manageParticipantButton.setTitle(localization.buttonManageParticipants, for: .normal)
+
             settingCell.stringPicker.reloadComponent(0)
             settingCell.participantPicker.reloadComponent(0)
             settingCell.distributorPicker.reloadComponent(0)
+            
             settingCell.selectionStyle = .none
             
             return settingCell

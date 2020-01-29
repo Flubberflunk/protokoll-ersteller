@@ -45,7 +45,7 @@ class HeaderImageChangeTableViewController: MenuController {
             let cell = tableView.dequeueReusableCell(withIdentifier: "headerImageCell", for: indexPath) as! HeaderImageTableViewCell
             cell.selectionStyle = .none
             cell.delegate = self
-            cell.selectedImg.image = getHeaderImageForProto(proto: proto!)
+            cell.selectedImg.image = getHeaderImageForProto()
             cell.imageButton.setTitle(localization.selectImageFromGallery, for: .normal)
             
             return cell
@@ -62,7 +62,6 @@ extension HeaderImageChangeTableViewController : UIImagePickerControllerDelegate
     
     func showImagePicker(){
         if UIImagePickerController.isSourceTypeAvailable(.savedPhotosAlbum){
-            print("Button capture")
             
             imagePicker.delegate = self
             imagePicker.sourceType = .savedPhotosAlbum

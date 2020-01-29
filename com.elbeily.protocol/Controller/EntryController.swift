@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RealmSwift
 
 class EntryController: MenuController, AddExecutee {
     
@@ -19,12 +20,13 @@ class EntryController: MenuController, AddExecutee {
 
         tableView.separatorStyle = .none
         if let prot = selecteProtocol {
-//            print(prot)
+            resort()
         }else {
             selecteProtocol = Protocol()
             do {try realm.write{selecteProtocol!.nr = getNextProtoNr() }}catch{print(error)}
         }
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
@@ -51,17 +53,33 @@ class EntryController: MenuController, AddExecutee {
         }
         return rows
     }
+    func resort(){
+        if let prot = selecteProtocol {
+            sortedEntries = sortEntry(prot.entries)
+        }
+        tableView.reloadData()
+    }
     
+    func updateAllNumber(){
+        allNumbers = [Double]()
+        if let entries = sortedEntries {
+            for entry in entries {
+                allNumbers.append(entry.number)
+            }
+        }
+    }
+    
+    var allNumbers = [Double]()
     var lastNumber : Double?
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "entryCell", for: indexPath) as! EntryTableViewCell
-        
+        cell.entryControllerDelegate = self
         cell.protocolAddExecutee = self
         cell.localization = localization
         cell.selectionStyle = .none
-        if selecteProtocol!.entries.count > indexPath.row {
-            let entry = selecteProtocol!.entries[indexPath.row]
+        if sortedEntries?.count ?? -1 > indexPath.row {
+            let entry = sortedEntries![indexPath.row]
             cell.executeDate.date = entry.dateToExecute
             cell.contentTextView.text = entry.content
             cell.nrTextField.text = String(entry.number)
@@ -70,11 +88,19 @@ class EntryController: MenuController, AddExecutee {
             cell.executeeArr = getConcernList(entry:entry)
             cell.executees.reloadAllComponents()
             lastNumber = entry.number
+            allNumbers.append(lastNumber ?? 0.0)
         }else if rows > indexPath.row + 1{
             
             let entry = Entry()
             let nr = lastNumber ?? 0.90
-            let number = nr + 0.10
+            
+            
+            var number = nr + 0.10
+            while(allNumbers.contains(number)) {
+                number = number + 0.10
+            }
+            allNumbers.append(number)
+            lastNumber = number
             entry.number = Double(round(100*number)/100)
             cell.nrTextField.text = String(entry.number)
             cell.entry = entry
@@ -86,6 +112,7 @@ class EntryController: MenuController, AddExecutee {
                 }
             }catch{print(error)}
             cell.designStatus(status: Status.new)
+            sortedEntries = sortEntry(selecteProtocol!.entries)
         }else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "addButtonCell") as! AddButtonCell
             cell.selectionStyle = .none
@@ -101,10 +128,10 @@ class EntryController: MenuController, AddExecutee {
 
         
         if rows == indexPath.row + 1 {
-            print("--------------------------------","button pressed")
+//            print("--------------------------------","button pressed")
             additionalRows = 1
             tableView.reloadData()
-            print("new rows",rows)
+//            print("new rows",rows)
         }
     }
     
@@ -126,6 +153,7 @@ class EntryController: MenuController, AddExecutee {
         return true
     }
 
+    var sortedEntries : List<Entry>?
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if (editingStyle == .delete) {
             let deleteConfirmAlert = UIAlertController(title: localization.confirmDeleteTitle, message: localization.confirmDeleteEntry, preferredStyle: UIAlertController.Style.alert)
@@ -160,8 +188,8 @@ class EntryController: MenuController, AddExecutee {
 //        let height = window?.windowScene?.statusBarManager?.statusBarFrame.height ?? 0
 //        
 //        print(height)
-        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -100
-, right: 0)
+//        tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -100
+//, right: 0)
 
     }
     
@@ -170,5 +198,6 @@ class EntryController: MenuController, AddExecutee {
 
 
 protocol AddExecutee {
+    
     func addExecutee(entry: Entry)
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class DE : Localization {
-
+    
     //MARK - Participant
     var mail = "Mail"
     var firstname = "Vorname"
@@ -60,4 +60,20 @@ class DE : Localization {
     var NA = "N/A"
     
     var selectImageFromGallery = "Eigenes Bild auswählen."
+    var changeHeaderImage = "Header Bild wechseln"
+    
+    var showCostObjectLabel = "Kostenstellen"
+    var showProjektTitleLabel = "Projekt Titel"
+    var showTopicNameLabel = "Kategorie"
+    var showCompanyNameLabel = "Firmenname"
+    var showContactAddressLabel = "Anschrift und Kontakt"
+    var companyNameLabel = "Zegie Firmenname"
+    var contactAddressLabel = "Zeige Anschrift"
+    var contactAddressCountryLabel = "Land"
+    var contactAddressZipcodeLabel = "Postleitzahl"
+    var contactAddressStateLabel = "Bundesland"
+    var contactAddressTownLabel = "Stadt"
+    var contactAddressStreetLabel = "Straße"
+    var companyContactTeleLabel = "Telefon"
+    var companyContactMailLabel = "Mail"
 }

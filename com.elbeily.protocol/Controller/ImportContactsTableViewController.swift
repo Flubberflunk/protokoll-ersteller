@@ -12,16 +12,32 @@ import ContactsUI
 
 class ImportContactsTableViewController: MenuController {
     
+    @IBOutlet weak var searchTF: UITextField!
+    @IBOutlet weak var serach: UINavigationItem!
     var importedContacts = List<Participant>()
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        searchTF.addTarget(self, action: #selector(searchTextChanged(_:)), for: UIControl.Event.editingChanged)
+        searchTF.frame.size.width = 200.0
         tableView.register(UINib(nibName: "SelectParticipantCell", bundle: nil), forCellReuseIdentifier: "selectParticipantCell")
         importContacts()
         if(importedContacts.count == 0) {
             checkIfContactPermissionsAreAvailable()
         }
         
+    }
+    
+    func loadContacts(filter: String = "") {
+        importContacts(filter:filter)
+        if(importedContacts.count == 0) {
+            checkIfContactPermissionsAreAvailable()
+        }
+        tableView.reloadData()
+    }
+    
+    @objc func searchTextChanged(_ textField: UITextField) {
+        loadContacts(filter:textField.text ?? "")
     }
     
     // MARK: - Table view data source
@@ -93,8 +109,8 @@ class ImportContactsTableViewController: MenuController {
     }
     
     
-    func importContacts(){
-        importedContacts = getContacts()
+    func importContacts(filter: String = ""){
+        importedContacts = getContacts(filter: filter)
         var cnt = 0
         for contact in importedContacts {
             shouldBeSelected[cnt] = particpantExists(index: cnt, contact: contact)

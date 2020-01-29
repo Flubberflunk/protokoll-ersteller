@@ -14,6 +14,9 @@ import ContactsUI
 class MenuController: UITableViewController {
     
     
+    
+    var globalSettings : GlobalSettings?
+    
     let realm = try! Realm()
     let localization = LanguageFactory().getLocalization()
     var participants : Results<Participant>?
@@ -24,7 +27,7 @@ class MenuController: UITableViewController {
         super.viewDidLoad()
         showMeInFullScreen()
         hideBackButtonTitle()
-        
+        getGlobalSettings()
     }
     
     func addDoneBarItem(){
@@ -35,18 +38,28 @@ class MenuController: UITableViewController {
     }
     
     @objc func doneItemPressed(){
-        print("doneItemOressed")
+//        print("doneItemOressed")
     }
     
     func addTopBarAddItem(){
         navigationItem.leftBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(addItem), imageName: "add")
-        //               navigationController?.navigationBar.tintColor = DialegoColors.stdCellTextColor
-        //               navigationItem.leftBarButtonItem?.tintColor = DialegoColors.primaryOrange
         navigationItem.leftItemsSupplementBackButton = true
     }
     
     @objc func addItem() {
-        print("add item")
+//        print("add item")
+    }
+    
+    func getGlobalSettings() {
+        globalSettings = realm.objects(GlobalSettings.self).first
+        if nil == globalSettings {
+            do{
+                try realm.write {
+                    globalSettings = GlobalSettings()
+                    realm.add(globalSettings!)
+                }
+            }catch{print(error)}
+        }
     }
     
     // MARK: - Table view data source
@@ -283,15 +296,18 @@ class MenuController: UITableViewController {
     
     
     
-    func getContacts() -> List<Participant> {
+    func getContacts(filter: String = "") -> List<Participant> {
         
-        
+        let filter = filter.lowercased()
         let deviceContacts = List<Participant>()
         let contacts = PhoneContacts.getContacts()
         
         for contact in contacts {
             let firstName = contact.givenName.replacingOccurrences(of: "'", with: "")
             let lastName = contact.familyName.replacingOccurrences(of: "'", with: "")
+            
+           
+            
             let participant = Participant()
             participant.firstName = firstName
             participant.lastName = lastName
@@ -301,8 +317,10 @@ class MenuController: UITableViewController {
                 participant.sign = sign
             }
             
+            var mail = ""
             if let email = contact.emailAddresses.first?.value as String? {
                 participant.mail = email
+                mail = email
             }
             let companyName = contact.organizationName
             
@@ -314,12 +332,47 @@ class MenuController: UITableViewController {
                 participant.company = company
                 
             }
+            if(filter != "" && !firstName.lowercased().contains(filter) && !lastName.lowercased().contains(filter)  && !companyName.lowercased().contains(filter) &&  !mail.lowercased().contains(filter)) {
+               continue
+           }
+            
+            
             deviceContacts.append(participant)
         }
         
         return deviceContacts
     }
     
+    func sortEntry(_ entries : List<Entry>) -> List<Entry>{
+        let sorted = List<Entry>()
+        var smallestTmp : Double = Double.greatestFiniteMagnitude
+        var tmpEntry : Entry?
+        var added = [Int]()
+        var addedIndex = 0
+        var outerCnt = 0;
+        var innerCnt = 0;
+        for _ in entries {
+            innerCnt = 0
+            for e in entries {
+                if (e.number <= smallestTmp) {
+                    if(!added.contains(innerCnt))
+                    {
+                        smallestTmp = e.number
+                        tmpEntry = e
+                        addedIndex = innerCnt
+                    }
+                }
+                innerCnt += 1
+                
+            }
+            smallestTmp = Double.greatestFiniteMagnitude
+            sorted.append(tmpEntry!)
+            added.append(addedIndex)
+            outerCnt += 1
+        }
+        
+        return sorted
+    }
     
     func deleteParticipantFromEveryOccurence(participant : Participant) {
         
@@ -348,7 +401,7 @@ class MenuController: UITableViewController {
         
         var cnt = 0
         for participant in participants {
-            print(participant == searchFor)
+//            print(participant == searchFor)
             if participant.company?.name == searchFor.company?.name &&
             participant.firstName == searchFor.firstName &&
             participant.lastName == searchFor.lastName &&
@@ -372,7 +425,7 @@ class MenuController: UITableViewController {
         return nil
     }
     
-    func getHeaderImageForProto(proto: Protocol) -> UIImage{
+    func getHeaderImageForProto() -> UIImage{
         
         let image = getSavedImage(named: "custom-header")
         if let img = image {

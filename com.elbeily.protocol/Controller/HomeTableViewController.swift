@@ -16,6 +16,7 @@ class HomeTableViewController: MenuController {
     override func viewDidLoad() {
         super.viewDidLoad()
         super.addTopBarAddItem()
+        addTopBarGlobalSettingsItem()
         tableView.register(UINib(nibName: "ProtocolTableViewCell", bundle: nil), forCellReuseIdentifier: "protocolCell")
         
         allProtocols = getProtocols()
@@ -25,6 +26,15 @@ class HomeTableViewController: MenuController {
         allProtocols = getProtocols()
         tableView.reloadData()
     }
+    
+    func addTopBarGlobalSettingsItem(){
+          navigationItem.rightBarButtonItem = UIBarButtonItem.menuButton(self, action: #selector(globalSettingsPressed), imageName: "settings")
+          navigationItem.leftItemsSupplementBackButton = true
+      }
+      
+      @objc func globalSettingsPressed(){
+          performSegue(withIdentifier: "goToGlobalSettings", sender: self)
+      }
     
     override func addItem() {
 //        performSegue(withIdentifier: "goToAddParticipant", sender: self)
