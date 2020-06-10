@@ -90,14 +90,14 @@ class PDFPreviewTableViewController: MenuController {
         var atLeastOne = 0
         atLeastOne += (globalSettings?.showCostObject ?? true) ? 1 : 0
         
-        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showCostObject ?? true)  ? proto.costLocation?.name ?? localization.NA : "")
+        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showCostObject ?? true)  ? proto.costLocation?.name ?? localization.showCostObjectLabel : "")
         atLeastOne += (globalSettings?.showProjektTitle ?? true) ? 1 : 0
         
-        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showProjektTitle ?? true)  ? proto.project?.name ?? localization.NA : "")
+        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showProjektTitle ?? true)  ? proto.project?.name ?? localization.showProjektTitleLabel : "")
         
         atLeastOne += (globalSettings?.showTopicName ?? true) ? 1 : 0
         
-        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showTopicName ?? true)  ? proto.topic?.name ?? localization.NA : "")
+        title += ((atLeastOne > 1) ? " / " : "") + ((globalSettings?.showTopicName ?? true)  ? proto.topic?.name ?? localization.showTopicNameLabel : "")
         object.text = title
         
         
@@ -110,7 +110,7 @@ class PDFPreviewTableViewController: MenuController {
         let protoNr = UILabel()
         y += labelH1Height
         protoNr.font = h1Font
-        protoNr.text = String(format: "%@: %@", localization.labelProtoNr, proto.number)
+        protoNr.text = String(format: "%@: %d", localization.labelProtoNr, proto.nr)
         protoNr.frame = CGRect(x:x, y:y, width: width-x, height: labelH1Height)
         protoNr.textColor = fontColor
         v1.addSubview(protoNr)
@@ -268,11 +268,13 @@ class PDFPreviewTableViewController: MenuController {
             ns.enumerateLines { (str, _) in
                 countLineBreaks += 1
             }
+            countLineBreaks += 1
             let charactersPerLine = 70
-            let lines = Double(entry.content.count / charactersPerLine) >= 1 ? Double(entry.content.count / charactersPerLine) : 1.0
+            let lines = Double(entry.content.count / charactersPerLine) >= 1 ? Double(entry.content.count  / charactersPerLine) : 1.0
             let contentH = (lines + Double(countLineBreaks)) * labelH2Height
             let content = UILabel()
-            content.text = entry.content
+            let changeDate = dateFormatter.string(from: entry.changeDate)
+            content.text = String(format: "%@\n%@", changeDate, entry.content)
             content.frame =  CGRect(x: w1+x, y: y, width: w2 - x, height: contentH)
             content.font = h2Font
             content.numberOfLines = 0
@@ -312,6 +314,13 @@ class PDFPreviewTableViewController: MenuController {
             concernH += labelH1Height + margin
             status.textColor = fontColor
             v1.addSubview(status)
+            
+//            //change date
+//            let changeLabel = UILabel()
+//            changeLabel.text = "Eintragsdatum:"
+//            changeLabel.font = h1Font
+//            changeLabel.textAlignment = .center
+//            changeLabel.frame
             
             //date label
             let dateLabel = UILabel()

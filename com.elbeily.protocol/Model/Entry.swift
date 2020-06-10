@@ -14,7 +14,7 @@ class Entry : Object {
     @objc dynamic var content = ""
     @objc dynamic var status = Status.new
     @objc dynamic var dateToExecute = Date()
-    
+    @objc dynamic var changeDate = Date()
     let concerncs = List<Participant>()
 }
 

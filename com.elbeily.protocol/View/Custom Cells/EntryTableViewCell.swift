@@ -15,7 +15,9 @@ class EntryTableViewCell: UITableViewCell {
     
     let realm = try! Realm()
     var entryControllerDelegate : EntryController?
+    @IBOutlet weak var changeDateLabel: UIView!
     var protocolAddExecutee : AddExecutee?
+    @IBOutlet weak var changeDate: UIDatePicker!
     @IBOutlet weak var addExecutee: UIButton!
     @IBOutlet weak var executees: UIPickerView!
     @IBOutlet weak var executeeLabel: UILabel!
@@ -102,6 +104,18 @@ class EntryTableViewCell: UITableViewCell {
         
         statusLabel.text = label
         statusLabel.backgroundColor = color
+    }
+    @IBAction func changeDateValueChanged(_ sender: Any) {
+        if let entry = self.entry {
+            let date = changeDate.date
+            do {
+                try realm.write{
+                    entry.changeDate = date
+                }
+            }catch{
+                print(error)
+            }
+        }
     }
     
     @IBAction func dateValueChanged(_ sender: Any) {

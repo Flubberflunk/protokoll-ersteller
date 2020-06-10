@@ -171,7 +171,7 @@ extension ProtocolSettingsTableViewController : AddWriter {
 
 extension ProtocolSettingsTableViewController : ProtoSettingsButtonEvent {
     func pressed() {
-        print("pressed")
+//        print("pressed")
     }
     
     func updatedTextField(index: Int, text: String) {

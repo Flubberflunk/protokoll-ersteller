@@ -80,6 +80,7 @@ class EntryController: MenuController, AddExecutee {
         cell.selectionStyle = .none
         if sortedEntries?.count ?? -1 > indexPath.row {
             let entry = sortedEntries![indexPath.row]
+            cell.changeDate.date = entry.changeDate
             cell.executeDate.date = entry.dateToExecute
             cell.contentTextView.text = entry.content
             cell.nrTextField.text = String(entry.number)

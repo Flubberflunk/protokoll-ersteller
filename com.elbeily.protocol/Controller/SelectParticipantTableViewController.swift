@@ -49,7 +49,7 @@ class SelectParticipantTableViewController: MenuController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        print(indexPath.row , sortedParticipants!.count)
+//        print(indexPath.row , sortedParticipants!.count)
         if (indexPath.row == 0 ) {
             performSegue(withIdentifier: "goToAddParticipant", sender: self)
         }else if indexPath.row <= sortedParticipants!.count  {

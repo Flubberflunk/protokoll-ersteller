@@ -586,7 +586,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = VH5WZ3VU73;
 				INFOPLIST_FILE = com.elbeily.protocol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -594,6 +594,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elbeily.protocol;
 				PRODUCT_NAME = "Protokoll Ersteller";
 				SWIFT_VERSION = 5.0;
@@ -607,7 +608,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = VH5WZ3VU73;
 				INFOPLIST_FILE = com.elbeily.protocol/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -615,6 +616,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.elbeily.protocol;
 				PRODUCT_NAME = "Protokoll Ersteller";
 				SWIFT_VERSION = 5.0;
